@@ -1,6 +1,6 @@
 .login {
   height: 100vh;
-  background-image: linear-gradient(#0000007e, #0000007e), url(/public/background_banner.jpg);
+  background-image: linear-gradient(#0000007e, #0000007e), url(/background_banner.jpg);
   padding: 20px 8%;
 }
 
@@ -37,7 +37,7 @@
   font-weight: 500;
 }
 
-.login-form input:placeholder {
+.login-form input::placeholder {
   font-size: 16px;
   font-weight: 500;
 }
@@ -85,4 +85,26 @@
   color: #fff;
   font-weight: 500;
   cursor: pointer;
+}
+
+.login-spinner {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-spinner img {
+  width: 60px;
+}
+
+@media (max-width: 500px) {
+  .login {
+    padding: 15px 5%;
+  }
+  .login-form {
+    padding: 20px;
+    margin-top: 30px;
+  }
 }

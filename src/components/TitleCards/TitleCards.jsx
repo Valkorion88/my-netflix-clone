@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './TitleCards.css';
 import cards_data from '../../assets/cards/Cards_data';
+import { Link } from 'react-router-dom';
 
 
 const TitleCards = ({title, category}) => {
@@ -65,10 +66,10 @@ const TitleCards = ({title, category}) => {
           const name = card.title ?? card.original_title ?? card.name;
 
           return (
-            <div className="card" key={card.id ?? name ?? index}>
+            <Link to={`/player/${card.id}`} className="card" key={card.id ?? name ?? index}>
               <img src={image} alt={name ?? ''} />
               <p>{name}</p>
-            </div>
+            </Link>
           );
         })}
       </div>
