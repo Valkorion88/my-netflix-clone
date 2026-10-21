@@ -11,14 +11,17 @@ import {
 import { toast } from "react-toastify";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCMl0-VErO_7aTMlwpilLicZzU0N8Jy2dc",
-  authDomain: "netflix-clone-48eef.firebaseapp.com",
-  projectId: "netflix-clone-48eef",
-  storageBucket: "netflix-clone-48eef.firebasestorage.app",
-  messagingSenderId: "490880841987",
-  appId: "1:490880841987:web:86037ca8f22806f16b5136"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
+if (Object.values(firebaseConfig).some((value) => !value)) {
+  throw new Error("Missing Firebase configuration. Set the VITE_FIREBASE_* variables in .env.local.");
+}
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
